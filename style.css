@@ -87,7 +87,7 @@ a:active, a:hover {
 
 .idxbody h1 {
   margin-top: 40px;
-  margin-bottom: 0.67em; }
+  margin-bottom: 0.5em; }
 .idxbody .idxlinks :nth-child(n-4) {
   flex-grow: 1; }
 .idxbody .idxlinks :nth-child(4) {
@@ -115,27 +115,31 @@ a:active, a:hover {
 
 .threadsbody h1 {
   margin-top: 40px;
-  margin-bottom: 0.67em; }
+  margin-bottom: 0.5em; }
+.threadsbody h1 {
+  margin-bottom: 0.2em; }
 .threadsbody .objlinks :nth-child(n-4) {
   flex-grow: 1; }
 .threadsbody .objlinks :nth-child(4) {
   margin-right: 2vw; }
 .threadsbody .objlinks :nth-child(n+4) {
   flex-grow: 10; }
-.threadsbody .obj h2 {
-  display: none; }
-.threadsbody .obj ul {
-  margin-top: 0;
-  padding-left: 0; }
-  .threadsbody .obj ul li {
-    list-style-type: none;
-    margin: 10px 0; }
-    .threadsbody .obj ul li a {
-      padding: 5px 0; }
+.threadsbody .obj {
+  margin-bottom: 30px; }
+  .threadsbody .obj h2 {
+    display: none; }
+  .threadsbody .obj ul {
+    margin-top: 0;
+    padding-left: 0; }
+    .threadsbody .obj ul li {
+      list-style-type: none;
+      margin: 10px 0; }
+      .threadsbody .obj ul li a {
+        padding: 5px 0; }
 
 .authbody h1 {
   margin-top: 40px;
-  margin-bottom: 0.67em; }
+  margin-bottom: 0.5em; }
 .authbody .objlinks a {
   flex-grow: 10; }
 .authbody .obj h2 {

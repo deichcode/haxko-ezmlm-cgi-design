@@ -27,7 +27,7 @@ $margin-to-top-links: 40px;
 @mixin h1() {
   h1 {
     margin-top: $margin-to-top-links;
-    margin-bottom: 0.67em;
+    margin-bottom: 0.5em;
   }
 }
 
@@ -196,6 +196,9 @@ a:active, a:hover {
 .threadsbody {
   @include h1();
 
+  h1 {
+    margin-bottom: 0.2em;
+  }
   .objlinks {
     :nth-child(n-4) {
       flex-grow: 1;
@@ -211,6 +214,8 @@ a:active, a:hover {
   }
 
   .obj {
+    margin-bottom: $margin-to-bottom-links;
+
     h2 {
       display: none;
     }

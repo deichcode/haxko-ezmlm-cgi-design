@@ -1,0 +1,267 @@
+//by Sören Schröder
+//MIT License
+
+$font: "Fira Mono", monospace;
+
+$font-color: #111;
+$light-gray: #cdcdcd;
+$lighter-gray: #a3a3a3;
+$darker-gray: #818181;
+$nearly-black: #222;
+$border-color: $lighter-gray;
+
+$margin-to-bottom-links: 30px;
+$margin-to-top-links: 40px;
+
+@mixin link($color) {
+  &:link, &:visited {
+    color: $color
+  }
+;
+  &:hover, &:active {
+    color: lighten($color, 20%)
+  }
+;
+}
+
+@mixin h1() {
+  h1 {
+    margin-top: $margin-to-top-links;
+    margin-bottom: 0.67em;
+  }
+}
+
+@import "normalize.css";
+
+* {
+  font-family: $font;
+}
+
+body {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1 1 auto;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  > * {
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: 100%;
+  }
+}
+
+pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+hr {
+  display: none;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: $darker-gray;
+}
+
+a:active, a:hover {
+  text-decoration: none;
+  color: $lighter-gray;
+}
+
+.idxlinks,
+.msglinks,
+.objlinks {
+
+  &:first-child {
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 10px;
+  }
+
+  &:last-child {
+    border-top: 1px solid $border-color;
+    padding-top: 10px;
+  }
+
+  strong {
+    flex-basis: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    a {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.msgbody {
+  .msglinks {
+    strong {
+      :nth-child(1) {
+        margin-left: 2vw;
+      }
+
+      :nth-child(1), :nth-child(4), :nth-child(7) {
+        flex-grow: 1;
+      }
+
+      :nth-child(2), :nth-child(5), :nth-child(8) {
+        flex-grow: 1;
+      }
+
+      :nth-child(3), :nth-child(6), :nth-child(9) {
+        flex-grow: 2;
+      }
+
+      :nth-child(9) {
+        margin-right: 2vw;
+      }
+
+      :nth-child(10) {
+        margin-left: 2vw;
+      }
+
+      :nth-child(n+9) {
+        flex-grow: 4;
+      }
+    }
+  }
+
+  .message {
+    margin: $margin-to-top-links 0 $margin-to-bottom-links;
+
+    .rfc822hdr {
+      padding: 5px 5px 2px;
+      border-bottom: 1px solid gray;
+      margin-bottom: 8px;
+      background-color: rgba(0, 0, 0, .1);
+
+      .subject {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+        display: inline-block;
+      }
+    }
+
+    strong { //attachments
+      color: $light-gray;
+      font-size: 0.8em;
+    }
+  }
+}
+
+.idxbody {
+  @include h1();
+
+  .idxlinks {
+    :nth-child(n-4) {
+      flex-grow: 1;
+    }
+
+    :nth-child(4) {
+      margin-right: 2vw;
+    }
+
+    :nth-child(5) {
+      margin-left: 2vw;
+    }
+
+    :nth-child(n+5) {
+      flex-grow: 10;
+    }
+  }
+
+  .idx {
+    color: $light-gray;
+    margin-bottom: $margin-to-bottom-links;
+
+    .mlk, .alk {
+      padding: 5px 0;
+      display: inline-block;
+    }
+
+    .mlk {
+      @include link($nearly-black);
+    }
+
+    .alk {
+      margin: 0 0 10px;
+      @include link($lighter-gray);
+    }
+  }
+}
+
+.threadsbody {
+  @include h1();
+
+  .objlinks {
+    :nth-child(n-4) {
+      flex-grow: 1;
+    }
+
+    :nth-child(4) {
+      margin-right: 2vw;
+    }
+
+    :nth-child(n+4) {
+      flex-grow: 10;
+    }
+  }
+
+  .obj {
+    h2 {
+      display: none;
+    }
+
+    ul {
+      margin-top: 0;
+      padding-left: 0;
+
+      li {
+        list-style-type: none;
+        margin: 10px 0;
+
+        a {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
+
+.authbody {
+  @include h1();
+
+  .objlinks {
+    a {
+      flex-grow: 10;
+    }
+  }
+
+  .obj {
+    h2 {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 0;
+
+      h2 {
+        margin-top: 20px;
+      }
+
+      li {
+        list-style-type: none;
+        margin: 10px 0;
+
+        a {
+          padding: 5px 0;
+        }
+
+      }
+    }
+  }
+}
